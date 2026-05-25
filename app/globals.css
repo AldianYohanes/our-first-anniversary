@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1a1c2c;
+  --foreground: #f4e4bc;
+  --primary: #fce085;
+  --accent-1: #4a3a60;
+  --accent-2: #8d5b78;
+  --accent-3: #f08573;
+  --accent-4: #2d3a3a;
+  --accent-5: #1a2a2a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-primary: var(--primary);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-accent-4: var(--accent-4);
+  --color-accent-5: var(--accent-5);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-geist-sans);
+  --font-handwriting: var(--font-caveat);
+  --font-kalam: var(--font-kalam);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Retro UI Components */
+.retro-panel {
+  background: var(--accent-4);
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+}
+
+/* Visual novel typing cursor */
+.typing-cursor::after {
+  content: "█";
+  margin-left: 5px;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Soft transition effects */
+.soft-glow {
+  box-shadow: 0 0 20px rgba(252, 224, 133, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--accent-5);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-3);
 }
