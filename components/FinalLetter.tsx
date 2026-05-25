@@ -15,7 +15,13 @@ interface TimeDiff {
 
 export default function FinalLetter() {
   const [isOpen, setIsOpen] = useState(false);
-  const [timeDiff, setTimeDiff] = useState<TimeDiff>({ years: 0, days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timeDiff, setTimeDiff] = useState<TimeDiff>({
+    years: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
   const [muted, setMuted] = useState(false);
   const [showSecret, setShowSecret] = useState(false);
 
@@ -87,7 +93,6 @@ export default function FinalLetter() {
 
   return (
     <div className="absolute inset-0 z-10 flex flex-col items-center justify-between bg-radial from-[#FAF6EE] via-[#EAE6F3] to-[#FCEBEF] p-6 select-none overflow-hidden text-[#473228]">
-      
       {/* Floating Sparkles/Hearts */}
       <div className="absolute inset-x-0 bottom-0 top-0 pointer-events-none z-10">
         {[...Array(12)].map((_, i) => (
@@ -125,7 +130,11 @@ export default function FinalLetter() {
           onClick={toggleMute}
           className="flex items-center justify-center p-2.5 rounded-full bg-[#FCFBF7] border-2 border-[#78350F] text-amber-700 shadow-sm hover:scale-105 active:scale-95 transition-all cursor-pointer"
         >
-          {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 animate-bounce" />}
+          {muted ? (
+            <VolumeX className="w-4 h-4" />
+          ) : (
+            <Volume2 className="w-4 h-4 animate-bounce" />
+          )}
         </button>
       </div>
 
@@ -140,7 +149,7 @@ export default function FinalLetter() {
           <Clock className="w-4 h-4 text-pink-500" />
           <span>OUR LIFETIME JOURNEY TOGETHER</span>
         </div>
-        
+
         <div className="grid grid-cols-5 gap-2.5 mt-4 w-full text-center">
           {[
             { label: "YEARS", value: timeDiff.years },
@@ -149,7 +158,10 @@ export default function FinalLetter() {
             { label: "MINS", value: timeDiff.minutes },
             { label: "SECS", value: timeDiff.seconds },
           ].map((item, idx) => (
-            <div key={idx} className="bg-[#FAF6EE] border-2 border-[#78350F] rounded-xl p-2 md:p-3 flex flex-col justify-center items-center shadow-inner">
+            <div
+              key={idx}
+              className="bg-[#FAF6EE] border-2 border-[#78350F] rounded-xl p-2 md:p-3 flex flex-col justify-center items-center shadow-inner"
+            >
               <span className="text-xl md:text-2xl font-extrabold text-[#473228] font-mono tracking-tight leading-none">
                 {String(item.value).padStart(2, "0")}
               </span>
@@ -184,10 +196,28 @@ export default function FinalLetter() {
             >
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-pink-300 to-amber-300 opacity-20 blur-md group-hover:opacity-40 transition-opacity" />
 
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 176 128">
-                <path d="M2 2 L88 64 L174 2" fill="none" stroke="#78350F" strokeWidth="2.5" />
-                <path d="M2 126 L76 70" fill="none" stroke="#78350F" strokeWidth="2" />
-                <path d="M174 126 L100 70" fill="none" stroke="#78350F" strokeWidth="2" />
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 176 128"
+              >
+                <path
+                  d="M2 2 L88 64 L174 2"
+                  fill="none"
+                  stroke="#78350F"
+                  strokeWidth="2.5"
+                />
+                <path
+                  d="M2 126 L76 70"
+                  fill="none"
+                  stroke="#78350F"
+                  strokeWidth="2"
+                />
+                <path
+                  d="M174 126 L100 70"
+                  fill="none"
+                  stroke="#78350F"
+                  strokeWidth="2"
+                />
               </svg>
 
               <motion.div
@@ -217,7 +247,10 @@ export default function FinalLetter() {
             transition={{ type: "spring", damping: 20 }}
             className="absolute inset-x-4 bottom-4 top-16 md:inset-x-8 md:bottom-8 z-40 bg-[#FCFBF7] border-4 border-double border-[#78350F] shadow-2xl rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-y-auto select-text font-serif text-[#473228]"
           >
-            <div className="absolute inset-0 bg-repeat bg-[radial-gradient(#78350f_0.5px,transparent_0.5px)] opacity-5 pointer-events-none" style={{ backgroundSize: "12px 16px" }} />
+            <div
+              className="absolute inset-0 bg-repeat bg-[radial-gradient(#78350f_0.5px,transparent_0.5px)] opacity-5 pointer-events-none"
+              style={{ backgroundSize: "12px 16px" }}
+            />
 
             <div className="space-y-4 md:space-y-6 flex-1 pr-1 font-sans">
               <div className="flex justify-between items-end border-b-2 border-dashed border-amber-800/20 pb-2">
@@ -232,19 +265,40 @@ export default function FinalLetter() {
               <div className="text-sm leading-relaxed text-[#473228] space-y-4 font-sans font-bold">
                 <p>Happy 1st Anniversary, my love.</p>
                 <p>
-                  Reflecting back to late 2024 when we first met at <i>Adhyatmaka</i>, I never would have imagined that the "calm, ordinary girl" sitting quietly would become the absolute anchor of my entire life. And you probably thought I was just some weird guy carrying drinks around!
+                  Reflecting back to early 2025 when we first met at{" "}
+                  <i>Adhyatmaka</i>, I never would have imagined that the "calm,
+                  ordinary girl" sitting quietly would become the absolute
+                  anchor of my entire life. And you probably thought I was just
+                  some weird guy carrying drinks around!
                 </p>
                 <p>
-                  But even before we officially became lovers on <b>May 25, 2025</b>, you showed me a depth of genuine care I had never experienced. The day you brought me bread just so I wouldn’t stay mad at you was the exact moment I realized I was completely in love with you. Your gentle heart—which cares so deeply for other people, campus cats, and everything in this world—is what drew me to you.
+                  But even before we officially became lovers on{" "}
+                  <b>May 25, 2025</b>, you showed me a depth of genuine care I
+                  had never experienced. The day you brought me bread just so I
+                  wouldn’t stay mad at you was the exact moment I realized I was
+                  completely in love with you. Your gentle heart—which cares so
+                  deeply for other people, campus cats, and everything in this
+                  world—is what drew me to you.
                 </p>
                 <p>
-                  Our relationship feels so mature and responsible. You are smart, responsible, and composed—a wonderful medical student with a beautifully grounded personality. Yet, when we are together, we turn into two clingy golden retrievers, emotional, playful, stubborn, and chaotic all at once.
+                  Our relationship feels so mature and responsible. You are
+                  smart, responsible, and composed—a wonderful medical student
+                  with a beautifully grounded personality. Yet, when we are
+                  together, we turn into two clingy golden retrievers,
+                  emotional, playful, stubborn, and chaotic all at once.
                 </p>
                 <p>
-                  Thank you for accompanying me on the 12th floor of <i>Gedung R FTI</i>. That massive office used to feel cold and lonely, but your presence brought it completely to life. Thank you for holding my hand in 2025 when I was financially struggling, broke, and lost. You stayed, supported me, and calmed my biggest fears about my future.
+                  Thank you for accompanying me on the 12th floor of{" "}
+                  <i>Gedung R FTI</i>. That massive office used to feel cold and
+                  lonely, but your presence brought it completely to life. Thank
+                  you for holding my hand in 2025 when I was financially
+                  struggling, broke, and lost. You stayed, supported me, and
+                  calmed my biggest fears about my future.
                 </p>
                 <p>
-                  I don't have dramatic promises to make, Cia. My only promise is to quietly stay together with you through all of life's chaotic and peaceful seasons, loving you exactly as I do now.
+                  I don't have dramatic promises to make, Cia. My only promise
+                  is to quietly stay together with you through all of life's
+                  chaotic and peaceful seasons, loving you exactly as I do now.
                 </p>
                 <p>I don't say this nearly enough, but...</p>
               </div>
@@ -304,7 +358,7 @@ export default function FinalLetter() {
         )}
       </AnimatePresence>
 
-      <div 
+      <div
         onClick={triggerSecretHeart}
         className="text-[9px] text-[#78350F]/45 font-mono mb-2 cursor-pointer hover:text-[#78350F] transition-colors"
       >

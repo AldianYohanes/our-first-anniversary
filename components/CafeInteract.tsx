@@ -24,13 +24,17 @@ interface ScrapbookPage {
   date: string;
   desc: string;
   note: string;
-  sticker: string;
+  image: string;
 }
 
 export default function CafeInteract({ onWin }: CafeInteractProps) {
   const [itemsFed, setItemsFed] = useState<string[]>([]);
-  const [activeDialogue, setActiveDialogue] = useState("Han, let's have a cozy cafe date together! Feed me something! yawww~");
-  const [ciaExpression, setCiaExpression] = useState<"normal" | "happy" | "dancing" | "shy" | "angry">("normal");
+  const [activeDialogue, setActiveDialogue] = useState(
+    "Han, let's have a cozy cafe date together! Feed me something! yawww~",
+  );
+  const [ciaExpression, setCiaExpression] = useState<
+    "normal" | "happy" | "dancing" | "shy" | "angry"
+  >("normal");
   const [showScrapbook, setShowScrapbook] = useState(false);
   const [scrapbookPage, setScrapbookPage] = useState(0);
 
@@ -40,7 +44,8 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
       name: "Fresh Sushi",
       emoji: "🍣",
       type: "favorite",
-      dialogue: "Sushiiiiiiiiiiii so yummyyyy, pototoaiiiii! My absolute favorrrrite! 🍣❤️",
+      dialogue:
+        "Sushiiiiiiiiiiii so yummyyyy, pototoaiiiii! My absolute favorrrrite! 🍣❤️",
       expression: "dancing",
     },
     {
@@ -48,7 +53,8 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
       name: "Warm Coffee",
       emoji: "☕",
       type: "favorite",
-      dialogue: "Warm coffeeyy makes me feel so cozyyy... instantly reminds me of you, Han! ☕✨",
+      dialogue:
+        "Warm coffeeyy makes me feel so cozyyy... instantly reminds me of you, Han! ☕✨",
       expression: "shy",
     },
     {
@@ -56,7 +62,8 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
       name: "Campus Cat",
       emoji: "🐱",
       type: "favorite",
-      dialogue: "Ohhhh a cute campus kitty! Let me pet it and feed it, so soft! 🐱❤️",
+      dialogue:
+        "Ohhhh a cute campus kitty! Let me pet it and feed it, so soft! 🐱❤️",
       expression: "happy",
     },
     {
@@ -72,7 +79,8 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
       name: "Bridgerton CD",
       emoji: "🎬",
       type: "neutral",
-      dialogue: "Bridgerton! Such a magical, elegant, and romantic story... luxury vibes! 🎬👑",
+      dialogue:
+        "Bridgerton! Such a magical, elegant, and romantic story... luxury vibes! 🎬👑",
       expression: "happy",
     },
     {
@@ -80,7 +88,8 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
       name: "Han's Exes List",
       emoji: "📝",
       type: "tease",
-      dialogue: "Pototoaiiii! Why are you bringing this up?! Are you trying to tease me? Hmph! 😤",
+      dialogue:
+        "Pototoaiiii! Why are you bringing this up?! Are you trying to tease me? Hmph! 😤",
       expression: "angry",
     },
   ];
@@ -91,28 +100,28 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
       date: "Late 2024",
       desc: "Met at Adhyatmaka Catholic college community. Han was carrying around a bag of drinks acting like a weird drink seller. Cia thought: 'What a weird guy...'",
       note: "Han's note: You seemed so calm and mature, entirely different from anyone else. You made the room feel beautiful.",
-      sticker: "✨",
+      image: "1.jpeg",
     },
     {
       title: "The Magic of Bread",
       date: "24 May 2025",
-      desc: "Han was sulking. But Cia, being the caring and thoughtful soul she is, brought him bread so he wouldn't stay mad at her. That caring touch made Han realize he was completely in love.",
+      desc: "(Ih gak ada fotonyaa) Han was sulking. But Cia, being the caring and thoughtful soul she is, brought him bread so he wouldn't stay mad at her. That caring touch made Han realize he was completely in love.",
       note: "Cia's texting style: 'Noooo stayyyy madddd, hereeee isss someee breadeeeee pototoaiii! 🍞'",
-      sticker: "🍞",
+      image: "croissant.avif",
     },
     {
       title: "Gedung R 12th Floor",
       date: "Late 2025",
       desc: "Cia accompanied Han while he worked late in his massive, empty 12th-floor office at Gedung R FTI. Her quiet presence made the massive cold office feel like home.",
       note: "Han's note: I used to hate working in that big empty office, but you made it alive. I wanted you in my future right then.",
-      sticker: "🏢",
+      image: "bobo.jpeg",
     },
     {
       title: "Our Golden Retriever Dynamic",
       date: "Every Single Day",
       desc: "Two golden retrievers running around! Warm, clingy, physically affectionate, emotionally comforting, quietly healing. We tease, eat, walk, and support each other through low moments.",
       note: "Hopes: To stay quietly together, through broke days and rich days. Standing strong, always.",
-      sticker: "🐕",
+      image: "duo.jpeg",
     },
   ];
 
@@ -132,7 +141,7 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
 
     setActiveDialogue(item.dialogue);
     setCiaExpression(item.expression);
-    
+
     if (item.expression !== "angry") {
       setTimeout(() => {
         setCiaExpression("normal");
@@ -152,7 +161,6 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
 
   return (
     <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-radial from-[#FAF6EE] via-[#EAE6F3] to-[#FCEBEF] p-4 select-none overflow-hidden text-[#473228]">
-      
       {ciaExpression === "dancing" && (
         <div className="absolute inset-0 pointer-events-none z-30">
           {[...Array(8)].map((_, i) => (
@@ -211,7 +219,7 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
                 <Coffee className="w-5 h-5 text-amber-700" />
                 <span>Cozy Café Date with Cia</span>
               </h2>
-              
+
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-bold font-mono text-amber-700">
                   CIA'S HAPPINESS: {itemsFed.length} / 3
@@ -221,7 +229,9 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
                     <Heart
                       key={i}
                       className={`w-4 h-4 ${
-                        i < itemsFed.length ? "text-pink-500 fill-pink-500 animate-pulse" : "text-gray-250 border-gray-300"
+                        i < itemsFed.length
+                          ? "text-pink-500 fill-pink-500 animate-pulse"
+                          : "text-gray-250 border-gray-300"
                       }`}
                     />
                   ))}
@@ -231,11 +241,19 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
 
             {/* Avatar Sprite display */}
             <div className="relative w-full h-44 bg-[#FAF6EE] rounded-2xl border-2 border-[#78350F] shadow-inner flex items-center justify-center overflow-hidden mb-4">
-              <div className="absolute inset-0 opacity-10 bg-repeat bg-[radial-gradient(#78350f_1.5px,transparent_1.5px)]" style={{ backgroundSize: "16px 16px" }} />
-              <CiaAvatar expression={ciaExpression} className="w-40 h-40 mt-4 z-10" />
+              <div
+                className="absolute inset-0 opacity-10 bg-repeat bg-[radial-gradient(#78350f_1.5px,transparent_1.5px)]"
+                style={{ backgroundSize: "16px 16px" }}
+              />
+              <CiaAvatar
+                expression={ciaExpression}
+                className="w-40 h-40 mt-4 z-10"
+              />
 
               <div className="absolute bottom-0 w-full h-8 bg-amber-900 border-t-2 border-[#78350F] z-20 flex items-center justify-center shadow-md">
-                <span className="text-[10px] text-amber-200 font-bold font-mono uppercase tracking-widest">CAFÉ DESK</span>
+                <span className="text-[10px] text-amber-200 font-bold font-mono uppercase tracking-widest">
+                  CAFÉ DESK
+                </span>
               </div>
             </div>
 
@@ -250,7 +268,7 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
               <p className="text-[9px] text-amber-800/60 font-bold font-mono tracking-widest text-center mb-2.5 uppercase">
                 GIVE ITEMS ON THE TABLE
               </p>
-              
+
               <div className="grid grid-cols-3 gap-2.5">
                 {CAFE_ITEMS.map((item) => (
                   <button
@@ -293,7 +311,10 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
             exit={{ opacity: 0, scale: 0.95 }}
             className="w-full max-w-xl bg-[#FAF6EE] border-3 double border-[#78350F] shadow-lg rounded-3xl p-6 flex flex-col items-center relative overflow-hidden font-sans text-[#473228]"
           >
-            <div className="absolute inset-0 bg-repeat bg-[radial-gradient(#78350f_0.5px,transparent_0.5px)] opacity-5 pointer-events-none" style={{ backgroundSize: "12px 16px" }} />
+            <div
+              className="absolute inset-0 bg-repeat bg-[radial-gradient(#78350f_0.5px,transparent_0.5px)] opacity-5 pointer-events-none"
+              style={{ backgroundSize: "12px 16px" }}
+            />
 
             {/* Scrapbook Header */}
             <div className="w-full flex items-center justify-between border-b-2 border-dashed border-amber-800/20 pb-3 mb-5 z-10 font-sans">
@@ -312,14 +333,22 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
             <motion.div
               key={scrapbookPage}
               initial={{ rotate: -5, opacity: 0, scale: 0.9 }}
-              animate={{ rotate: scrapbookPage % 2 === 0 ? 1 : -2, opacity: 1, scale: 1 }}
+              animate={{
+                rotate: scrapbookPage % 2 === 0 ? 1 : -2,
+                opacity: 1,
+                scale: 1,
+              }}
               transition={{ type: "spring", stiffness: 100, damping: 12 }}
               className="w-full max-w-[340px] bg-[#FCFBF7] border-2 border-[#78350F] p-4 pb-8 rounded-lg shadow-md flex flex-col items-center z-10"
             >
               {/* Polaroid Photo */}
-              <div className="w-full aspect-[4/3] bg-gradient-to-tr from-[#FAF6EE] to-[#FCEBEF] rounded border-2 border-[#78350F] flex flex-col items-center justify-center relative shadow-inner overflow-hidden">
-                <span className="text-6xl animate-bounce duration-1000">{SCRAPBOOK_PAGES[scrapbookPage].sticker}</span>
-                <span className="absolute bottom-2 right-2 text-[8px] font-bold text-amber-800/40 font-mono tracking-widest uppercase">
+              <div className="w-full aspect-[4/3] bg-gradient-to-tr from-[#FAF6EE] to-[#FCEBEF] rounded border-2 border-[#78350F] relative shadow-inner overflow-hidden">
+                <img
+                  src={SCRAPBOOK_PAGES[scrapbookPage].image}
+                  alt={SCRAPBOOK_PAGES[scrapbookPage].title}
+                  className="w-full h-full object-cover"
+                />
+                <span className="absolute bottom-2 right-2 text-[8px] font-bold text-white/60 font-mono tracking-widest uppercase drop-shadow">
                   POLAROID PHOTO
                 </span>
               </div>
@@ -342,8 +371,12 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
               </div>
 
               <div className="bg-[#FAF6EE] border border-amber-300 p-3 rounded-2xl text-xs font-bold text-amber-900 space-y-1">
-                <p className="font-mono text-[9px] tracking-wider text-amber-800">✨ SECRET DETAILS:</p>
-                <p className="italic font-handwriting text-sm">“{SCRAPBOOK_PAGES[scrapbookPage].note}”</p>
+                <p className="font-mono text-[9px] tracking-wider text-amber-800">
+                  ✨ SECRET DETAILS:
+                </p>
+                <p className="italic font-handwriting text-sm">
+                  “{SCRAPBOOK_PAGES[scrapbookPage].note}”
+                </p>
               </div>
             </div>
 
@@ -364,7 +397,10 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
                       <span>CIA CLINGINESS: 100% (RETRIEVER)</span>
                     </div>
                     <div className="w-full h-2.5 bg-amber-50 rounded-full overflow-hidden border border-[#78350F]">
-                      <div className="h-full bg-pink-400" style={{ width: "100%" }} />
+                      <div
+                        className="h-full bg-pink-400"
+                        style={{ width: "100%" }}
+                      />
                     </div>
                   </div>
                   <div>
@@ -373,7 +409,10 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
                       <span>ROMANCE: DOUBLE CHAOTIC 100%</span>
                     </div>
                     <div className="w-full h-2.5 bg-amber-50 rounded-full overflow-hidden border border-[#78350F]">
-                      <div className="h-full bg-indigo-400" style={{ width: "100%" }} />
+                      <div
+                        className="h-full bg-indigo-400"
+                        style={{ width: "100%" }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -384,7 +423,11 @@ export default function CafeInteract({ onWin }: CafeInteractProps) {
               onClick={handleNextPage}
               className="mt-6 px-8 py-3 rounded-full border-3 double border-[#78350F] bg-[#FCFBF7] hover:bg-[#FCEBEF] text-[#473228] font-bold text-xs tracking-wider shadow-md active:scale-95 transition-all cursor-pointer uppercase flex items-center justify-center gap-1.5 z-10"
             >
-              <span>{scrapbookPage < SCRAPBOOK_PAGES.length - 1 ? "FLIP SCRAPBOOK PAGE" : "FINISH DATE & CLOSE"}</span>
+              <span>
+                {scrapbookPage < SCRAPBOOK_PAGES.length - 1
+                  ? "FLIP SCRAPBOOK PAGE"
+                  : "FINISH DATE & CLOSE"}
+              </span>
               <ChevronRight className="w-4 h-4" />
             </button>
           </motion.div>

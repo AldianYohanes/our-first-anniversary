@@ -27,16 +27,16 @@ export default function Home() {
   const PROLOGUE_DIALOGUES: Record<number, DialogueLine> = {
     1: {
       speaker: "Narrator",
-      text: "Late 2024. The Adhyatmaka Catholic college community room. The afternoon sun filters warmly through the tall glass window, casting long shadows across piles of old board games and dusty desks. Faint chatter drifts from the hallway, but inside, Han is doing something quite peculiar...",
+      text: "Early 2025. The Adhyatmaka Catholic college community room. The afternoon sun filters warmly through the tall glass window, casting long shadows across piles of old board games and dusty desks. Faint chatter drifts from the hallway, but inside, Han is doing something quite peculiar...",
       nextId: 2,
     },
     2: {
       speaker: "Han",
       expression: "shy",
-      text: "Umm... hello! Nice to meet you! Would you like to buy a cold tea? 🍵 Only 5,000 rupiahs, fresh from my backpack! It's still cold, I promise! Haha!",
+      text: "Umm... hello! Nice to meet you! (...what should I say?)",
       choices: [
         {
-          text: "“Hey... want to buy a cold tea? 🍵” (Act like a weird backpack drink seller)",
+          text: "“Hey...  Would you like to buy an iced coffee? 🍵 Only 15,000 rupiahs, fresh from my backpack!” (Act like a weird backpack drink seller)",
           nextId: 3,
         },
         {
@@ -48,7 +48,7 @@ export default function Home() {
     3: {
       speaker: "Cia",
       expression: "normal",
-      text: "Hehe... a drink seller inside a community room? What a weird guy... but I respect the hustle. Are they actually cold?",
+      text: "Hehe... a drink seller inside a community room? What a weird guy... but I respect the hustle. Are they actually iced?",
       nextId: 5,
     },
     4: {
@@ -65,7 +65,7 @@ export default function Home() {
     6: {
       speaker: "Cia",
       expression: "happy",
-      text: "You are funny! I will buy a bottle of tea. I'm Cia, by the way. Nice to meet you, Han! yawww~",
+      text: "You are funny! I will buy a cup of coffee. I'm Cia, by the way. Nice to meet you, Han! yawww~",
       nextId: 7,
     },
     7: {
@@ -137,7 +137,7 @@ export default function Home() {
     41: {
       speaker: "Han",
       expression: "normal",
-      text: "It was always so quiet and isolating working late here. Only coffee mugs and lines of code for company. But then, the heavy glass door clicked open, and she stepped in carrying her heavy study bags...",
+      text: "It was always so quiet and isolating working late here. Only Alleyway's coffee and bunch of designs for Mr Tony. But then, the heavy glass door clicked open, and she stepped in carrying her heavy study bags...",
       nextId: 42,
     },
     42: {
@@ -228,7 +228,6 @@ export default function Home() {
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#FAF6EE] text-[#473228]">
       <AnimatePresence mode="wait">
-        
         {/* Chapter 0: Password Gate */}
         {chapter === 0 && (
           <motion.div
@@ -256,7 +255,7 @@ export default function Home() {
               dialogues={PROLOGUE_DIALOGUES}
               startId={1}
               onNextChapter={() => setChapter(2)}
-              bgImage="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1000&auto=format&fit=crop" 
+              bgImage="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1000&auto=format&fit=crop"
             />
           </motion.div>
         )}
@@ -287,7 +286,7 @@ export default function Home() {
               dialogues={CONFESSION_DIALOGUES}
               startId={20}
               onNextChapter={() => setChapter(4)}
-              bgImage="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=1000&auto=format&fit=crop"
+              bgImage="untar2.jpg"
             />
           </motion.div>
         )}
@@ -318,7 +317,7 @@ export default function Home() {
               dialogues={FTI_OFFICE_DIALOGUES}
               startId={40}
               onNextChapter={() => setChapter(6)}
-              bgImage="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
+              bgImage="untar.jpeg"
             />
           </motion.div>
         )}
@@ -391,7 +390,6 @@ export default function Home() {
             <FinalLetter />
           </motion.div>
         )}
-
       </AnimatePresence>
     </div>
   );
