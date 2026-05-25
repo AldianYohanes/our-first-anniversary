@@ -27,7 +27,7 @@ export default function FinalLetter() {
 
   const NICKNAME_HAN = "Han";
   const NICKNAME_CIA = "Cia";
-  const START_DATE = "2025-05-25T00:00:00"; // Commencement of relationship
+  const START_DATE = "2025-05-25T01:44:00"; // Commencement of relationship
 
   useEffect(() => {
     const calculateTime = () => {
@@ -173,7 +173,7 @@ export default function FinalLetter() {
         </div>
 
         <p className="text-[10px] text-amber-900/60 font-mono mt-3">
-          Since 25 May 2025, 00:00 AM • Quietly staying together
+          Since 25 May 2025, 01:44 AM • Quietly staying together
         </p>
       </motion.div>
 
